@@ -1,0 +1,72 @@
+[
+    {
+        "area_id":0,
+        "area_label":"Yard",
+        "floor":0
+    },
+    {
+        "area_id":1,
+        "area_label":"Hall",
+        "floor":0
+    },
+    {
+        "area_id":2,
+        "area_label":"Dining",
+        "floor":0
+    },
+    {
+        "area_id":3,
+        "area_label":"Lounge",
+        "floor":0
+    },
+    {
+        "area_id":4,
+        "area_label":"Kitchen",
+        "floor":0
+    },
+    {
+        "area_id":5,
+        "area_label":"Utility",
+        "floor":0
+    },
+    {
+        "area_id":6,
+        "area_label":"Plant",
+        "floor":0
+    },
+    {
+        "area_id":7,
+        "area_label":"Study",
+        "floor":0
+    },
+    {
+        "area_id":8,
+        "area_label":"WC",
+        "floor":0
+    },
+    {
+        "area_id":9,
+        "area_label":"Master Bedroom",
+        "floor":1
+    },
+    {
+        "area_id":10,
+        "area_label":"Bedroom 1",
+        "floor":1
+    },
+    {
+        "area_id":11,
+        "area_label":"Bedroom 2",
+        "floor":1
+    },
+    {
+        "area_id":12,
+        "area_label":"Bedroom 3",
+        "floor":1
+    },
+    {
+        "area_id":13,
+        "area_label":"Bathroom",
+        "floor":1
+    }
+]

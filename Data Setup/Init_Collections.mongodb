@@ -1,0 +1,18 @@
+// MongoDB Playground
+// Select the database to use.
+use('IoT_PropertyData');
+
+db.createCollection("Rooms");
+
+db.createCollection("Consumption");
+
+db.createCollection("Appliances");
+
+db.createCollection("Sensors");
+
+db.createCollection("SensorReadings", { capped: true, size: 100000 });
+
+db.createCollection("ApplianceUsage", { capped: true, size: 100000 });
+
+
+

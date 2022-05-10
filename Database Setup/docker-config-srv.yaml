@@ -1,0 +1,42 @@
+version: '2'
+services:
+#Building confing servers
+  mongo_cfg1:
+    container_name: mongo_cfg1
+    image: mongo
+    command: mongod --configsvr --replSet mongo_rs1_conf --dbpath /data/db --port 27017
+    environment:
+      TERM: xterm
+    expose:
+      - "27017"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - mongo_cfg1:/data/db
+  mongo_cfg2:
+    container_name: mongo_cfg2
+    image: mongo
+    command: mongod --configsvr --replSet mongo_rs1_conf --dbpath /data/db --port 27017
+    environment:
+      TERM: xterm
+    expose:
+      - "27017"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - mongo_cfg2:/data/db
+  mongo_cfg3:
+    container_name: mongo_cfg3
+    image: mongo
+    command: mongod --configsvr --replSet mongo_rs1_conf --dbpath /data/db --port 27017
+    environment:
+      TERM: xterm
+    expose:
+      - "27017"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - mongo_cfg3:/data/db
+
+
+volumes:
+  mongo_cfg1: {}
+  mongo_cfg2: {}
+  mongo_cfg3: {}

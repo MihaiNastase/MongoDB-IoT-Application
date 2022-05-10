@@ -52,8 +52,11 @@ Check status of replica sets:
 
 ## Setup sharding for the routers
 
-    docker exec -it mongo_shard1 bash -c "echo 'sh.addShard(\"mongo_rs1/mongo_rs1_n1\")' | mongo"
-    docker exec -it mongo_shard2 bash -c "echo 'sh.addShard(\"mongo_rs2/mongo_rs2_n1\")' | mongo"
+    docker exec -it mongo_shard1 mongo 
+        sh.addShard("mongo_rs1/mongo_rs1_n1")
+
+    docker exec -it mongo_shard2 mongo
+        sh.addShard("mongo_rs2/mongo_rs2_n1")
 
 Check shard status:
     docker exec -it mongo_shard1 bash -c "echo 'sh.status()' | mongo "
@@ -64,11 +67,13 @@ Add a test database:
     docker exec -it mongo_rs1_n1 bash -c "echo 'use testDb' | mongo"
 
 Enable sharding for the database:
-    docker exec -it mongo_shard1 bash -c "echo 'sh.enableSharding(\"testDb\")' | mongo "
+    docker exec -it mongo_shard1 mongo
+        sh.enableSharding("testDb")
 
 Add a test collection to the test database:
     docker exec -it mongo_mongo_rs1_n1 bash -c "echo 'db.createCollection(\"testDb.testCollection\")' | mongo "
     docker exec -it mongo_mongo_rs2_n1 bash -c "echo 'db.createCollection(\"testDb.testCollection\")' | mongo "
 
 Enable sharding for the collection based on sharding key:
-    docker exec -it mongo_shard1 bash -c "echo 'sh.shardCollection(\"testDb.testCollection\", {\"shardingField\" : 1})' | mongo "
+    docker exec -it mongo_shard1 mongo 
+        sh.shardCollection("testDb.testCollection", {"shardingField" : 1})

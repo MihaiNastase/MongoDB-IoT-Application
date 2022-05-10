@@ -1,0 +1,310 @@
+[
+    {
+        "area_id":1,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Hall Lights",
+        "consumption":100,
+        "grade":"A++"
+    },
+    {
+        "area_id":2,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Dining Room Lights",
+        "consumption":100,
+        "grade":"A++"
+    },
+    {
+        "area_id":3,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Lounge Lights",
+        "consumption":100,
+        "grade":"A++"
+    },
+    {
+        "area_id":3,
+        "appliance_type":{
+            "id": "627aace120af799667acb119"
+          },
+        "consumption_type":true,
+        "label":"Plasma TV",
+        "consumption":365,
+        "grade":"A"
+    },
+    {
+        "area_id":3,
+        "appliance_type":{
+            "id": "627aace120af799667acb10a"
+          },
+        "consumption_type":true,
+        "label":"Lounge Fireplace",
+        "consumption":2500,
+        "grade":"B"
+    },
+    {
+        "area_id":3,
+        "appliance_type":{
+            "id":"627aace120af799667acb123"
+        },
+        "consumption_type":true,
+        "label":"Lounge Home Cinema",
+        "consumption":40,
+        "grade":"A"
+    },
+    {
+        "area_id":4,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Kitchen Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":4,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Breakfast Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":4,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Sunroom Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":4,
+        "appliance_type":null,
+        "consumption_type":false,
+        "label":"Gas Hob",
+        "consumption":500,
+        "grade":"A++"
+    },
+    {
+        "area_id":4,
+        "appliance_type":{
+            "id": "627aace120af799667acb10c"
+          },
+        "consumption_type":true,
+        "label":"Oven",
+        "consumption":2100,
+        "grade":"A+"
+    },
+    {
+        "area_id":4,
+        "appliance_type":{
+            "id": "627aace120af799667acb113"
+          },
+        "consumption_type":true,
+        "label":"Toaster",
+        "consumption":1150,
+        "grade":"A"
+    },
+    {
+        "area_id":4,
+        "appliance_type":{
+            "id": "627aace120af799667acb114"
+          },
+        "consumption_type":true,
+        "label":"Microwave",
+        "consumption":1050,
+        "grade":"A"
+    },
+    {
+        "area_id":4,
+        "appliance_type":{
+            "id": "627aace120af799667acb120"
+          },
+        "consumption_type":true,
+        "label":"Fridge",
+        "consumption":80,
+        "grade":"A+++"
+    },
+    {
+        "area_id":5,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Utility Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":5,
+        "appliance_type":{
+            "id": "627aace120af799667acb10d"
+          },
+        "consumption_type":true,
+        "label":"Washing machine",
+        "consumption":2100,
+        "grade":"A+"
+    },
+    {
+        "area_id":5,
+        "appliance_type":{
+            "id": "627aace120af799667acb109"
+          },
+        "consumption_type":true,
+        "label":"Tumble Dryer",
+        "consumption":2500,
+        "grade":"A"
+    },
+    {
+        "area_id":6,
+        "appliance_type":null,
+        "consumption_type":false,
+        "label":"Boiler",
+        "consumption":2000,
+        "grade":"A"
+    },
+    {
+        "area_id":7,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Study Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":7,
+        "appliance_type":{
+            "id":"627aace120af799667acb121"
+        },
+        "consumption_type":true,
+        "label":"Laptop",
+        "consumption":42.5,
+        "grade":null
+    },
+    {
+        "area_id":7,
+        "appliance_type":{
+            "id":"627aace120af799667acb126"
+        },
+        "consumption_type":true,
+        "label":"WiFi Router",
+        "consumption":8,
+        "grade":null
+    },
+    {
+        "area_id":8,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"WC",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":9,
+        "appliance_type":{
+            "id":"627aace120af799667acb11c"
+        },
+        "consumption_type":true,
+        "label":"TV",
+        "consumption":162.5,
+        "grade":"A++"
+    },
+    {
+        "area_id":9,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Bedroom Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":9,
+        "appliance_type":{
+            "id":"627aace120af799667acb127"
+        },
+        "consumption_type":true,
+        "label":"Charger",
+        "consumption":3,
+        "grade":null
+    },
+    {
+        "area_id":10,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Bedroom Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":10,
+        "appliance_type":{
+            "id":"627aace120af799667acb127"
+        },
+        "consumption_type":true,
+        "label":"Charger",
+        "consumption":3,
+        "grade":null
+    },
+    {
+        "area_id":11,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Bedroom Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":11,
+        "appliance_type":{
+            "id":"627aace120af799667acb127"
+        },
+        "consumption_type":true,
+        "label":"Charger",
+        "consumption":3,
+        "grade":null
+    },
+    {
+        "area_id":12,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Bedroom Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":12,
+        "appliance_type":{
+            "id":"627aace120af799667acb127"
+        },
+        "consumption_type":true,
+        "label":"Charger",
+        "consumption":3,
+        "grade":null
+    },
+    {
+        "area_id":13,
+        "appliance_type":null,
+        "consumption_type":true,
+        "label":"Bathroom Lights",
+        "consumption":100,
+        "grade":"A+"
+    },
+    {
+        "area_id":13,
+        "appliance_type":{
+            "id":"627aace120af799667acb106"
+        },
+        "consumption_type":true,
+        "label":"Electric shower",
+        "consumption":8750,
+        "grade":null
+    },
+    {
+        "area_id":13,
+        "appliance_type":{
+            "id":"627aace120af799667acb10e"
+        },
+        "consumption_type":true,
+        "label":"Hairdryer",
+        "consumption":8750,
+        "grade":"A"
+    }
+]

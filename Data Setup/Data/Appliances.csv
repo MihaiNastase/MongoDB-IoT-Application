@@ -1,0 +1,35 @@
+﻿appliance,avg_power_rating,cost_hour
+Electric shower,8750,218.5
+Immersion heater,3000,75
+Kettle,3000,75
+Tumble Dryer,2500,62.5
+Electric fire,2500,62.5
+Electric mower,2300,28.75
+Oven,2100,52.5
+Washing machine,2100,50
+Hairdryer,2000,50
+Oil-filled radiator,2000,50
+Grill/hob,1500,32.5
+Iron,1400,35
+Dishwasher,1275,30
+Toaster,1150,28.5
+Microwave,1050,26.25
+Electric drill,950,23.5
+Vacuum cleaner,850,21.25
+Dehumidifier,500,12.5
+Towel rail,375,9.25
+Plasma TV ,365,9
+Fridge-freezer,300,7.5
+Heating blanket,165,4
+LCD TV,162.5,4
+Freezer,150,4
+Desktop computer,140,3.5
+Games console,117.5,3
+Fridge,80,2
+Laptop,42.5,1.05
+Video/DVD/CD,40,1.05
+TV box,35,0.85
+Extractor fan,20,0.55
+Tablet (charge),10,0.2
+Broadband router,8,0.2
+Smart phone (charge),3,0.1
