@@ -52,7 +52,7 @@ Check status of replica sets:
 
 ## Setup sharding for the routers
 
-    docker exec -it mongo_shard1 mongo 
+    docker exec -it mongo_shard1 mongo
         sh.addShard("mongo_rs1/mongo_rs1_n1")
 
     docker exec -it mongo_shard2 mongo
