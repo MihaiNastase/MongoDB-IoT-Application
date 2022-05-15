@@ -53,6 +53,16 @@ def init_database(db_uri):
             file_data = json.load(f)
             db.Appliances.insert_many(file_data)
 
+    try:
+        with open('./Json/Sensors.json') as f:
+            file_data = json.load(f)
+            db.Sensors.insert_many(file_data)
+    except:
+        print("Using relative path!")
+        with open('DataSetup\Json\Sensors.json') as f:
+            file_data = json.load(f)
+            db.Sensors.insert_many(file_data)
+
 
     client.close()
 
