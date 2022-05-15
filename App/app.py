@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask
 from flask import g
 from flask import jsonify
@@ -8,6 +9,8 @@ from flask import redirect
 from flask import render_template
 from flask import make_response
 from flask_apscheduler import APScheduler
+from numpy import double
+from sqlalchemy import null
 from simulate_sensors import read_random
 import pymongo
 from bson import BSON
@@ -314,6 +317,64 @@ def updateSensorById(Id):
         return jsonify(json_docs), 200
     else:
         return {"Error": "Sensors with specified Id does not exist!"}, 404
+
+
+#############################################
+#           RECORD DATA ENDPOINTS           #
+#############################################
+
+@app.route('/IoT/ApplianceUsage/<label>', methods=['GET'])
+def registerUsage(label):
+    args = request.args
+    if args.get("usageStart") == None or args.get("interval") == None:
+        return {"Error":"Malformed reading!"}, 400
+
+    try:
+        usageStart = datetime.strptime(args.get("usageStart"), "%d/%m/%Y %H:%M:%S")
+        interval = float(args.get("interval"))
+
+        holder = list()
+        result = db.Appliances.find({"label":label})
+        for i in result:
+            holder.append(i)
+        if len(holder):
+            payload = {"usageStart":usageStart, "usageInterval":interval, "appliance_id":label}
+            db.ApplianceUsage.insert_one(payload)
+            return f"Registered reading for {label}.", 200
+        else:
+            return {"Error": "Appliance with specified label does not exist!"}, 404
+
+    except Exception as e:
+        return {"Error":str(e)}, 400
+    
+    
+@app.route('/IoT/SensorReading/<Id>', methods=['GET'])
+def registerReading(Id):
+    args = request.args
+    if args.get("timeStamp") == None or args.get("reading") == None:
+        return {"Error":"Malformed reading!"}, 400
+
+    try:
+        timeStamp = datetime.strptime(args.get("timeStamp"), "%d/%m/%Y %H:%M:%S")
+        reading = float(args.get("reading"))
+
+        holder = list()
+        result = db.Sensors.find({"sensor_id":Id})
+        for i in result:
+            holder.append(i)
+        if len(holder):
+            payload = {"timeStamp":timeStamp, "reading":reading, "sensor_id":Id}
+            db.ApplianceUsage.insert_one(payload)
+            return f"Registered reading for {Id}.", 200
+        else:
+            return {"Error": "Sensor with specified Id does not exist!"}, 404
+
+    except Exception as e:
+        return {"Error":str(e)}, 400
+
+#####################################################
+#           DATA AGGREGATION ENPOINT                #
+####################################################
 
 if __name__ == '__main__':
     app.run(debug=True)
