@@ -49,11 +49,13 @@ def resume_interval_task():
     scheduler.resume_job(id=INTERVAL_TASK_ID)
     return 'Interval task resumed', 200
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def welcome():
     return "Welcome to IoThing. The path you're looking for is /IoT/", 200
 
-@app.route('/IoT/Rooms')
+
+#THE ROOMS ENDPOINT
+@app.route('/IoT/Rooms', methods=['GET'])
 def findAllRooms():
     holder = list()
     result = db.Rooms.find()
@@ -62,6 +64,65 @@ def findAllRooms():
     json_docs = parse_json(holder)
     return jsonify(json_docs), 200
 
+@app.route('/IoT/Rooms', methods=['POST'])
+def addNewRooms():
+    payload = request.json
+    db.Rooms.insert_many(payload)
+    return {"Success":"Room(s) registered!"}, 200
+
+@app.route('/IoT/Room/<area_id>', methods=['GET'])
+def findRoomById(area_id):
+    try:
+        id = int(area_id)
+        holder = list()
+        result = db.Rooms.find({"area_id":id})
+        for i in result:
+            holder.append(i)
+        json_docs = parse_json(holder)
+        return jsonify(json_docs), 200
+    except Exception as e:
+        return {"Error":str(e)}, 400
+
+@app.route('/IoT/Room/<area_id>', methods=['DELETE'])
+def deleteRoomById(area_id):
+    try:
+        id = int(area_id)
+        holder = list()
+        result = db.Rooms.find({"area_id":id})
+        for i in result:
+            holder.append(i)
+        if len(holder):
+            db.Rooms.delete_one({"area_id":id})
+            json_docs = parse_json(holder)
+            return jsonify(json_docs), 200
+        else:
+            return {"Error": "Room with specified area Id does not exist!"}, 404
+    except Exception as e:
+        return {"Error":str(e)}, 400
+
+@app.route('/IoT/Room/<area_id>', methods=['PUT'])
+def updateRoomById(area_id):
+    payload = request.json
+    try:
+        id = int(area_id)
+        holder = list()
+        result = db.Rooms.find({"area_id":id})
+        for i in result:
+            holder.append(i)
+        if len(holder):
+            db.Rooms.delete_one({"area_id":id})
+            db.Rooms.insert_one(payload)
+            result = db.Rooms.find({"area_id":id})
+            for i in result:
+                holder.append(i)
+            json_docs = parse_json(holder)
+            return jsonify(json_docs), 200
+        else:
+            return {"Error": "Room with specified area Id does not exist!"}, 404
+    except Exception as e:
+        return {"Error":str(e)}, 400
+
+#THE APPLIANCES ENDPOINT
 
 
 
