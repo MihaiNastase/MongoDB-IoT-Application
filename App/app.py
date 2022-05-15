@@ -54,7 +54,11 @@ def welcome():
     return "Welcome to IoThing. The path you're looking for is /IoT/", 200
 
 
-#THE ROOMS ENDPOINT
+
+#########################################
+#           THE ROOMS ENDPOINT          #
+#########################################
+
 @app.route('/IoT/Rooms', methods=['GET'])
 def findAllRooms():
     holder = list()
@@ -128,8 +132,10 @@ def updateRoomById(area_id):
 
 
 
+#############################################
+#           THE APPLIANCES ENDPOINT         #
+#############################################
 
-#THE APPLIANCES ENDPOINT
 @app.route('/IoT/Appliances', methods=['GET'])
 def findAllAppliances():
     holder = list()
@@ -162,7 +168,7 @@ def findAllAppliancesByLabel(label):
         json_docs = parse_json(holder)
         return jsonify(json_docs), 200
     else:
-        return {"Error": "Appliance with specified area Id does not exist!"}, 404
+        return {"Error": "Appliance with specified label does not exist!"}, 404
 
 @app.route('/IoT/Appliances', methods=['POST'])
 def addNewAppliances():
@@ -214,9 +220,100 @@ def updateApplianceByLabel(label):
         json_docs = parse_json(holder)
         return jsonify(json_docs), 200
     else:
-        return {"Error": "Room with specified area Id does not exist!"}, 404
+        return {"Error": "Appliance with specified area Id does not exist!"}, 404
 
 
+
+
+#############################################
+#           THE SENSORS ENDPOINT            #
+#############################################
+
+@app.route('/IoT/Sensors', methods=['GET'])
+def findAllSensors():
+    holder = list()
+    result = db.Sensors.find()
+    for i in result:
+        holder.append(i)
+    json_docs = parse_json(holder)
+    return jsonify(json_docs), 200
+
+@app.route('/IoT/Sensors/<area_id>', methods=['GET'])
+def findAllSensorsByArea(area_id):
+    try:
+        id = int(area_id)
+        holder = list()
+        result = db.Sensors.find({"area_id":id})
+        for i in result:
+            holder.append(i)
+        json_docs = parse_json(holder)
+        return jsonify(json_docs), 200
+    except Exception as e:
+        return {"Error":str(e)}, 400
+
+@app.route('/IoT/Sensor/<Id>', methods=['GET'])
+def findAllSensorById(Id):
+    holder = list()
+    result = db.Sensors.find({"sensor_id":Id})
+    for i in result:
+        holder.append(i)
+    if len(holder):
+        json_docs = parse_json(holder)
+        return jsonify(json_docs), 200
+    else:
+        return {"Error": "Sensor with specified Id does not exist!"}, 404
+
+@app.route('/IoT/Sensors', methods=['POST'])
+def addNewSensors():
+    payload = request.json
+    db.Sensors.insert_many(payload)
+    return {"Success":"Sensor(s) registered!"}, 200
+
+@app.route('/IoT/Sensors/<area_id>', methods=['DELETE'])
+def deleteSensorsByArea(area_id):
+    try:
+        id = int(area_id)
+        holder = list()
+        result = db.Rooms.find({"area_id":id})
+        for i in result:
+            holder.append(i)
+        if len(holder):
+            db.Sensors.delete_many({"area_id":id})
+            return "Sensors unregistered!", 200
+        else:
+            return {"Error": "Room with specified area Id does not exist!"}, 404
+    except Exception as e:
+        return {"Error":str(e)}, 400
+
+@app.route('/IoT/Sensor/<Id>', methods=['DELETE'])
+def deleteSensorsById(Id):
+        holder = list()
+        result = db.Sensors.find({"sensor_id":Id})
+        for i in result:
+            holder.append(i)
+        if len(holder):
+            db.Sensors.delete_one({"sensor_id":Id})
+            return "Sensor unregistered!", 200
+        else:
+            return {"Error": "Sensor with specified Id does not exist!"}, 404
+
+@app.route('/IoT/Sensor/<Id>', methods=['PUT'])
+def updateSensorById(Id):
+    payload = request.json
+    holder = list()
+    result = db.Sensors.find({"sensor_id":Id})
+    for i in result:
+        holder.append(i)
+    if len(holder):
+        db.Sensors.delete_one({"sensor_id":Id})
+        db.Sensors.insert_one(payload)
+        result = db.Sensors.find({"sensor_id":Id})
+        for i in result:
+            holder.append(i)
+        json_docs = parse_json(holder)
+        return jsonify(json_docs), 200
+    else:
+        return {"Error": "Sensors with specified Id does not exist!"}, 404
 
 if __name__ == '__main__':
     app.run(debug=True)
