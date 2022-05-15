@@ -1,0 +1,29 @@
+[
+    {
+        "area_id": 0,
+        "sensor_id": "temp1",
+        "type": "TMP36",
+        "label": "Outside Temperature",
+        "wattage": 5,
+        "duration": 1,
+        "standard": "OASIS"
+    },
+    {
+        "area_id": 0,
+        "sensor_id": "atm1",
+        "type": "BMP180",
+        "label": "Atmospheric Pressure",
+        "wattage": 5,
+        "duration": 1,
+        "standard": "OASIS"
+    },
+    {
+        "area_id": 0,
+        "sensor_id": "ldr0",
+        "type": "LDR",
+        "label": "Outside Luminosity",
+        "wattage": 3,
+        "duration": 1,
+        "standard": "OASIS"
+    }
+]

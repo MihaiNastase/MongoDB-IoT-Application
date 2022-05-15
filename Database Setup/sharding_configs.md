@@ -72,3 +72,8 @@ Add a test collection to the test database:
 
 Enable sharding for the collection based on sharding key:
     docker exec -it mongo_shard1 bash -c "echo 'sh.shardCollection(\"testDb.testCollection\", {\"shardingField\" : 1})' | mongo "
+
+
+## Add IoT database to shard after was created
+    docker exec -it mongo_shard1 bash -c "echo 'sh.enableSharding(\"IoT_PropertyData\")' | mongo"
+    docker exec -it mongo_shard1 bash -c "echo 'sh.shardCollection(\"IoT_PropertyData.History\", {\"shardingField\" : 1})' | mongo"
