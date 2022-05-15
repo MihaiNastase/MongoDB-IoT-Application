@@ -25,19 +25,15 @@
     },
     {
         "area_id":3,
-        "appliance_type":{
-            "id": "627aace120af799667acb119"
-          },
+        "appliance_type": "Plasma TV",
         "consumption_type":true,
-        "label":"Plasma TV",
+        "label": "Plasma TV",
         "consumption":365,
         "grade":"A"
     },
     {
         "area_id":3,
-        "appliance_type":{
-            "id": "627aace120af799667acb10a"
-          },
+        "appliance_type": "Electric fire",
         "consumption_type":true,
         "label":"Lounge Fireplace",
         "consumption":2500,
@@ -45,9 +41,7 @@
     },
     {
         "area_id":3,
-        "appliance_type":{
-            "id":"627aace120af799667acb123"
-        },
+        "appliance_type": "Video/DVD/CD",
         "consumption_type":true,
         "label":"Lounge Home Cinema",
         "consumption":40,
@@ -87,9 +81,7 @@
     },
     {
         "area_id":4,
-        "appliance_type":{
-            "id": "627aace120af799667acb10c"
-          },
+        "appliance_type": "Oven",
         "consumption_type":true,
         "label":"Oven",
         "consumption":2100,
@@ -97,9 +89,7 @@
     },
     {
         "area_id":4,
-        "appliance_type":{
-            "id": "627aace120af799667acb113"
-          },
+        "appliance_type": "Toaster",
         "consumption_type":true,
         "label":"Toaster",
         "consumption":1150,
@@ -107,9 +97,7 @@
     },
     {
         "area_id":4,
-        "appliance_type":{
-            "id": "627aace120af799667acb114"
-          },
+        "appliance_type": "Microwave",
         "consumption_type":true,
         "label":"Microwave",
         "consumption":1050,
@@ -117,9 +105,7 @@
     },
     {
         "area_id":4,
-        "appliance_type":{
-            "id": "627aace120af799667acb120"
-          },
+        "appliance_type": "Fridge",
         "consumption_type":true,
         "label":"Fridge",
         "consumption":80,
@@ -135,9 +121,7 @@
     },
     {
         "area_id":5,
-        "appliance_type":{
-            "id": "627aace120af799667acb10d"
-          },
+        "appliance_type": "Washing machine",
         "consumption_type":true,
         "label":"Washing machine",
         "consumption":2100,
@@ -145,9 +129,7 @@
     },
     {
         "area_id":5,
-        "appliance_type":{
-            "id": "627aace120af799667acb109"
-          },
+        "appliance_type": "Tumble Dryer",
         "consumption_type":true,
         "label":"Tumble Dryer",
         "consumption":2500,
@@ -171,9 +153,7 @@
     },
     {
         "area_id":7,
-        "appliance_type":{
-            "id":"627aace120af799667acb121"
-        },
+        "appliance_type": "Laptop",
         "consumption_type":true,
         "label":"Laptop",
         "consumption":42.5,
@@ -181,9 +161,7 @@
     },
     {
         "area_id":7,
-        "appliance_type":{
-            "id":"627aace120af799667acb126"
-        },
+        "appliance_type": "Broadband router",
         "consumption_type":true,
         "label":"WiFi Router",
         "consumption":8,
@@ -199,9 +177,7 @@
     },
     {
         "area_id":9,
-        "appliance_type":{
-            "id":"627aace120af799667acb11c"
-        },
+        "appliance_type": "LCD TV",
         "consumption_type":true,
         "label":"TV",
         "consumption":162.5,
@@ -217,9 +193,7 @@
     },
     {
         "area_id":9,
-        "appliance_type":{
-            "id":"627aace120af799667acb127"
-        },
+        "appliance_type": "Smart phone (charge)",
         "consumption_type":true,
         "label":"Charger",
         "consumption":3,
@@ -235,9 +209,7 @@
     },
     {
         "area_id":10,
-        "appliance_type":{
-            "id":"627aace120af799667acb127"
-        },
+        "appliance_type": "Smart phone (charge)",
         "consumption_type":true,
         "label":"Charger",
         "consumption":3,
@@ -253,12 +225,10 @@
     },
     {
         "area_id":11,
-        "appliance_type":{
-            "id":"627aace120af799667acb127"
-        },
+        "appliance_type": "Tablet (charge)",
         "consumption_type":true,
         "label":"Charger",
-        "consumption":3,
+        "consumption":10,
         "grade":null
     },
     {
@@ -271,9 +241,7 @@
     },
     {
         "area_id":12,
-        "appliance_type":{
-            "id":"627aace120af799667acb127"
-        },
+        "appliance_type": "Smart phone (charge)",
         "consumption_type":true,
         "label":"Charger",
         "consumption":3,
@@ -289,9 +257,7 @@
     },
     {
         "area_id":13,
-        "appliance_type":{
-            "id":"627aace120af799667acb106"
-        },
+        "appliance_type": "Electric shower",
         "consumption_type":true,
         "label":"Electric shower",
         "consumption":8750,
@@ -299,9 +265,7 @@
     },
     {
         "area_id":13,
-        "appliance_type":{
-            "id":"627aace120af799667acb10e"
-        },
+        "appliance_type": "Hairdryer",
         "consumption_type":true,
         "label":"Hairdryer",
         "consumption":8750,

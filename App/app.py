@@ -78,8 +78,11 @@ def findRoomById(area_id):
         result = db.Rooms.find({"area_id":id})
         for i in result:
             holder.append(i)
-        json_docs = parse_json(holder)
-        return jsonify(json_docs), 200
+        if len(holder):
+            json_docs = parse_json(holder)
+            return jsonify(json_docs), 200
+        else:
+            return {"Error": "Room with specified area Id does not exist!"}, 404
     except Exception as e:
         return {"Error":str(e)}, 400
 
@@ -122,7 +125,96 @@ def updateRoomById(area_id):
     except Exception as e:
         return {"Error":str(e)}, 400
 
+
+
+
+
 #THE APPLIANCES ENDPOINT
+@app.route('/IoT/Appliances', methods=['GET'])
+def findAllAppliances():
+    holder = list()
+    result = db.Appliances.find()
+    for i in result:
+        holder.append(i)
+    json_docs = parse_json(holder)
+    return jsonify(json_docs), 200
+
+@app.route('/IoT/Appliances/<area_id>', methods=['GET'])
+def findAllAppliancesByArea(area_id):
+    try:
+        id = int(area_id)
+        holder = list()
+        result = db.Appliances.find({"area_id":id})
+        for i in result:
+            holder.append(i)
+        json_docs = parse_json(holder)
+        return jsonify(json_docs), 200
+    except Exception as e:
+        return {"Error":str(e)}, 400
+
+@app.route('/IoT/Appliance/<label>', methods=['GET'])
+def findAllAppliancesByLabel(label):
+    holder = list()
+    result = db.Appliances.find({"label":label})
+    for i in result:
+        holder.append(i)
+    if len(holder):
+        json_docs = parse_json(holder)
+        return jsonify(json_docs), 200
+    else:
+        return {"Error": "Appliance with specified area Id does not exist!"}, 404
+
+@app.route('/IoT/Appliances', methods=['POST'])
+def addNewAppliances():
+    payload = request.json
+    db.Appliances.insert_many(payload)
+    return {"Success":"Appliance(s) registered!"}, 200
+
+@app.route('/IoT/Appliances/<area_id>', methods=['DELETE'])
+def deleteAppliancesByArea(area_id):
+    try:
+        id = int(area_id)
+        holder = list()
+        result = db.Rooms.find({"area_id":id})
+        for i in result:
+            holder.append(i)
+        if len(holder):
+            db.Appliances.delete_many({"area_id":id})
+            return "Appliances unregistered!", 200
+        else:
+            return {"Error": "Room with specified area Id does not exist!"}, 404
+    except Exception as e:
+        return {"Error":str(e)}, 400
+
+@app.route('/IoT/Appliance/<label>', methods=['DELETE'])
+def deleteApplianceByLabel(label):
+        holder = list()
+        result = db.Appliances.find({"label":label})
+        for i in result:
+            holder.append(i)
+        if len(holder):
+            db.Appliances.delete_one({"label":label})
+            return "Appliance unregistered!", 200
+        else:
+            return {"Error": "Appliance with specified area Id does not exist!"}, 404
+
+@app.route('/IoT/Appliance/<label>', methods=['PUT'])
+def updateApplianceByLabel(label):
+    payload = request.json
+    holder = list()
+    result = db.Appliances.find({"label":label})
+    for i in result:
+        holder.append(i)
+    if len(holder):
+        db.Appliances.delete_one({"label":label})
+        db.Appliances.insert_one(payload)
+        result = db.Appliances.find({"label":label})
+        for i in result:
+            holder.append(i)
+        json_docs = parse_json(holder)
+        return jsonify(json_docs), 200
+    else:
+        return {"Error": "Room with specified area Id does not exist!"}, 404
 
 
 
