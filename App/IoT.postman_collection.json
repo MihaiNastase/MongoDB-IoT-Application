@@ -1,0 +1,687 @@
+{
+	"info": {
+		"_postman_id": "0b2fab06-438c-44c5-ba68-5a03d9b428b4",
+		"name": "IoT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Rooms",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Rooms",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Rooms"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RoomById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Room/0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Room",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RoomById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"area_id\":0,\r\n        \"area_label\":\"Yard\",\r\n        \"floor\":0\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Room/0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Room",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RoomById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Room/0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Room",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rooms",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"area_id\":0,\r\n        \"area_label\":\"Yard\",\r\n        \"floor\":0\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Rooms",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Rooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Appliances",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Appliances",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Appliances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AppliancesByArea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Appliances/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Appliances",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApplianceByLabel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Appliance/Dining Room Lights",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Appliance",
+						"Dining Room Lights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Appliances",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"area_id\":3,\r\n        \"appliance_type\":null,\r\n        \"consumption_type\":true,\r\n        \"label\":\"Lounge Lights\",\r\n        \"consumption\":100,\r\n        \"grade\":\"A++\"\r\n    },\r\n    {\r\n        \"area_id\":3,\r\n        \"appliance_type\": \"Plasma TV\",\r\n        \"consumption_type\":true,\r\n        \"label\": \"Plasma TV\",\r\n        \"consumption\":365,\r\n        \"grade\":\"A\"\r\n    },\r\n    {\r\n        \"area_id\":3,\r\n        \"appliance_type\": \"Electric fire\",\r\n        \"consumption_type\":true,\r\n        \"label\":\"Lounge Fireplace\",\r\n        \"consumption\":2500,\r\n        \"grade\":\"B\"\r\n    },\r\n    {\r\n        \"area_id\":3,\r\n        \"appliance_type\": \"Video/DVD/CD\",\r\n        \"consumption_type\":true,\r\n        \"label\":\"Lounge Home Cinema\",\r\n        \"consumption\":40,\r\n        \"grade\":\"A\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Appliances",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Appliances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AppliancesByArea",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Appliances/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Appliances",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApplianceByLabel",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Appliances/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Appliances",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApplianceByLabel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \r\n        \"appliance_type\": null,\r\n        \"area_id\": 2,\r\n        \"consumption\": 100,\r\n        \"consumption_type\": true,\r\n        \"grade\": \"A+\",\r\n        \"label\": \"Dining Room Lights\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Appliance/Dining Room Lights",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Appliance",
+						"Dining Room Lights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sensors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Sensors",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Sensors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SensorsByArea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Sensors/0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Sensors",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SensorsById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Sensor/temp1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Sensor",
+						"temp1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sensors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"area_id\": 0,\r\n        \"duration\": 1,\r\n        \"label\": \"Outside Temperature\",\r\n        \"sensor_id\": \"temp1\",\r\n        \"standard\": \"OASIS\",\r\n        \"type\": \"TMP36\",\r\n        \"wattage\": 5\r\n    },\r\n    {\r\n        \"area_id\": 0,\r\n        \"duration\": 1,\r\n        \"label\": \"Atmospheric Pressure\",\r\n        \"sensor_id\": \"atm1\",\r\n        \"standard\": \"OASIS\",\r\n        \"type\": \"BMP180\",\r\n        \"wattage\": 5\r\n    },\r\n    {\r\n        \"area_id\": 0,\r\n        \"duration\": 1,\r\n        \"label\": \"Outside Luminosity\",\r\n        \"sensor_id\": \"ldr0\",\r\n        \"standard\": \"OASIS\",\r\n        \"type\": \"LDR\",\r\n        \"wattage\": 3\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Sensors",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Sensors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SensorsByArea",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Sensors/0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Sensors",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SensorById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Sensor/temp1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Sensor",
+						"temp1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SensorById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"area_id\": 5,\r\n        \"duration\": 1,\r\n        \"label\": \"Kitchen Temperature\",\r\n        \"sensor_id\": \"temp1\",\r\n        \"standard\": \"OASIS\",\r\n        \"type\": \"TMP36\",\r\n        \"wattage\": 5\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/Sensor/temp1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"Sensor",
+						"temp1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApplianceUsage",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"area_id\": 5,\r\n        \"duration\": 1,\r\n        \"label\": \"Kitchen Temperature\",\r\n        \"sensor_id\": \"temp1\",\r\n        \"standard\": \"OASIS\",\r\n        \"type\": \"TMP36\",\r\n        \"wattage\": 5\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/ApplianceUsage/Boiler?usageStart=10/10/2022 07:20:31&interval=3600",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"ApplianceUsage",
+						"Boiler"
+					],
+					"query": [
+						{
+							"key": "usageStart",
+							"value": "10/10/2022 07:20:31"
+						},
+						{
+							"key": "interval",
+							"value": "3600"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SensorReading",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"area_id\": 5,\r\n        \"duration\": 1,\r\n        \"label\": \"Kitchen Temperature\",\r\n        \"sensor_id\": \"temp1\",\r\n        \"standard\": \"OASIS\",\r\n        \"type\": \"TMP36\",\r\n        \"wattage\": 5\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/SensorReading/temp1?timeStamp=20/10/2022 11:20:31&reading=40",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"SensorReading",
+						"temp1"
+					],
+					"query": [
+						{
+							"key": "timeStamp",
+							"value": "20/10/2022 11:20:31"
+						},
+						{
+							"key": "reading",
+							"value": "40"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UsagePerRoomInDay",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"area_id\": 5,\r\n        \"duration\": 1,\r\n        \"label\": \"Kitchen Temperature\",\r\n        \"sensor_id\": \"temp1\",\r\n        \"standard\": \"OASIS\",\r\n        \"type\": \"TMP36\",\r\n        \"wattage\": 5\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/SensorReading/temp1?timeStamp=20/10/2022 11:20:31&reading=40",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"SensorReading",
+						"temp1"
+					],
+					"query": [
+						{
+							"key": "timeStamp",
+							"value": "20/10/2022 11:20:31"
+						},
+						{
+							"key": "reading",
+							"value": "40"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TEST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/IoT/TEST",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"IoT",
+						"TEST"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
