@@ -10,6 +10,7 @@ from flask import render_template
 from flask import make_response
 from flask_apscheduler import APScheduler
 from numpy import double
+from pyparsing import col
 from sqlalchemy import null
 from simulate_sensors import read_random
 import pymongo
@@ -364,7 +365,7 @@ def registerReading(Id):
             holder.append(i)
         if len(holder):
             payload = {"timeStamp":timeStamp, "reading":reading, "sensor_id":Id}
-            db.ApplianceUsage.insert_one(payload)
+            db.SensorReadings.insert_one(payload)
             return f"Registered reading for {Id}.", 200
         else:
             return {"Error": "Sensor with specified Id does not exist!"}, 404
@@ -372,9 +373,56 @@ def registerReading(Id):
     except Exception as e:
         return {"Error":str(e)}, 400
 
+
 #####################################################
 #           DATA AGGREGATION ENPOINT                #
 ####################################################
+
+@app.route('/IoT/Dashboard/UsageInDay/<area_id>', methods=['GET'])
+def getUsagePerRoomInDay(area_id):
+    try:
+        id = int(area_id)
+        holder = list()
+        result = db.Rooms.find({"area_id":id})
+        for i in result:
+            holder.append(i)
+        if len(holder):
+            
+            pipeline = [
+                {
+                    "$lookup": {
+                    "from": 'Appliances',
+                    "localField": 'appliance_id',
+                    "foreignField": 'label',
+                    "as": 'appliance'
+                    }
+                },
+                { 
+                    "$unwind": '$appliance'
+                },
+                {
+                    "$match": {'appliance.area_id':id}
+                },
+                {
+                    "$group": {
+                        "_id": { "day": {"$dayOfYear": "$usageStart"}, "year":{"$year": "$usageStart"}, "room":"$appliance.area_id"},
+                        "totalUsage": { "$sum": { "$multiply": ["$usageInterval", "$appliance.consumption"]}},
+                        "count": {"$sum": 1}
+                    }
+                }
+            ]
+
+            collector = list()
+            aggregation = db.ApplianceUsage.aggregate(pipeline)
+            for i in aggregation:
+                collector.append(i)
+            json_docs = parse_json(collector)
+            return jsonify(json_docs), 200
+        else:
+            return {"Error": "Room with specified area Id does not exist!"}, 404
+    except Exception as e:
+        return {"Error":str(e)}, 400
+
 
 if __name__ == '__main__':
     app.run(debug=True)
