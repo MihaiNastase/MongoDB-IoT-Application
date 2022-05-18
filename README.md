@@ -1,6 +1,8 @@
 # MongoDB-IoT-Application
 <p>A small application for a smart home IoT system using MongoDB as the database. I made this project to learn more about NoSQL databases. The implementation features a MongoDB database architecture with two shards and replica sets. The database is easily set up using the docker compose .yaml files.</p>
 <p>The database setup is paired with a Flask API which provides complete CRUD functionality over the main collection in the database. The queries.mongodb in the App folder containes examples of a few advance aggregation you can perform on the database, once set-up and populated. In addition, while is running, the Flask server inserts some sensor reading into the database every 15 seconds, for simulation purposes.</p>
+<br>
+<sub>The build requires Python 3 or higher, Flask, Flask-APScheduler and Pymongo.<sub>
 
 <p>
 To set up the entire project:
